@@ -1,0 +1,15 @@
+setup.py
+An_lisis_Num_rico.egg-info/PKG-INFO
+An_lisis_Num_rico.egg-info/SOURCES.txt
+An_lisis_Num_rico.egg-info/dependency_links.txt
+An_lisis_Num_rico.egg-info/requires.txt
+An_lisis_Num_rico.egg-info/top_level.txt
+controladores/Respuesta_biseccion_controlador.py
+controladores/__init__.py
+controladores/biseccion_controlador.py
+controladores/punto_fijo_controlador.py
+controladores/respuesta_punto_fijo_controlador.py
+metodos_numericos/__init__.py
+metodos_numericos/biseccion.py
+metodos_numericos/biseccion_.py
+metodos_numericos/punto_fijo.py
