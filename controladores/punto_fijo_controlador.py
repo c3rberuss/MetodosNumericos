@@ -5,6 +5,8 @@ from controladores import respuesta_punto_fijo_controlador as res
 from matplotlib import pyplot
 from sympy import *
 from controladores.botones import Acciones
+from interfaz import respuesta_pf_interfaz as res_pf
+
 
 import numpy as np
 import math
@@ -67,16 +69,16 @@ class PuntoFijo(QDialog, Acciones):
         #self.btnVer.clicked.connect(self.actualizar_eq)
 
         #placeholders
-        self.interfaz.txtEcuacion.setPlaceholderText("Pow( x,2 ) + (3*x) - 1")
+        self.interfaz.txtEcuacion.setPlaceholderText("g(x) = Pow( x,2 ) + (3*x) - 1")
         self.interfaz.txtVInicial.setPlaceholderText("1")
         self.interfaz.txtTolerancia.setPlaceholderText("1e-8")
 
     def mostra_respuesta(self, response, ec):
         if response[0]:
-            resp = res.Resp(response, ec)
+            resp = res.Resp(response, ec, res_pf.Ui_Dialog())
             resp.exec_()
         else:
-            self.mensaje("Infomación", "Informativo", "La ecuación f(x) = "+str(ec)+"\n\n"+
+            self.mensaje("Infomación", "Informativo", "La ecuación g(x) = "+str(ec)+"\n\n"+
                         "Se vuelve inestable, pruebe con reescribiendo la ecuación.")
 
     def calcular(self):
@@ -106,8 +108,8 @@ class PuntoFijo(QDialog, Acciones):
 
         if(len(data) == 2 and sympify(data[0]).is_real and sympify(data[1]).is_real):
             #x = np.arange(-60.0, 60.0, 0.01)
-            x = np.arange(float(eval(data[0])), float(eval(data[1])), 0.01)
-            x2 = np.arange(-60.0,60.0,0.01)
+            x = np.arange(float(eval(data[0])), float(eval(data[1])), 0.1)
+            x2 = np.arange(-60.0,70.0,10)
             # Graficar ambas funciones.
 
             try:

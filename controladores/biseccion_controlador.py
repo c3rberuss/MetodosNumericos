@@ -70,10 +70,10 @@ class Biseccion(QDialog, Acciones):
         #self.btnVer.clicked.connect(self.actualizar_eq)
 
         #placeholders
-        self.interfaz.txtEcuacion.setPlaceholderText("Pow( x,2 ) + (3*x) - 1")
+        self.interfaz.txtEcuacion.setPlaceholderText("f(x) = Pow( x,2 ) + (3*x) - 1")
         self.interfaz.txtSuperior.setPlaceholderText("2")
         self.interfaz.txtInferior.setPlaceholderText("1")
-        self.interfaz.txtTolerancia.setPlaceholderText("1e4")
+        self.interfaz.txtTolerancia.setPlaceholderText("1e-8")
 
 
     def mostra_respuesta(self, response, ec):
@@ -99,7 +99,7 @@ class Biseccion(QDialog, Acciones):
 
         if(len(data) == 2 and sympify(data[0]).is_real and sympify(data[1]).is_real):
             #x = np.arange(-60.0, 60.0, 0.01)
-            x = np.arange(float(eval(data[0])), float(eval(data[1])), 0.01)
+            x = np.arange(float(eval(data[0])), float(eval(data[1])), 0.1)
             # Graficar ambas funciones.
 
             try:
