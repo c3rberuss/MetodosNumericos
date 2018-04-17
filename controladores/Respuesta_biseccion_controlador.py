@@ -1,11 +1,12 @@
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
 from PyQt5 import uic
+from controladores.reporte import saveReport
 
 class Resp(QDialog):
     
     interfaz = None
 
-    def __init__(self, response, ec, interfaz_):
+    def __init__(self, response, ec, interfaz_, tol):
         QDialog.__init__(self)
         
         self.interfaz = interfaz_
@@ -26,3 +27,8 @@ class Resp(QDialog):
             for columns in range(4):
                 item = str(response[5][row][columns])
                 self.interfaz.tbIteraciones.setItem(row,columns, QTableWidgetItem(item))
+
+
+        report = saveReport(str(ec),[response[3],response[4]], str(tol), str(response[1]), response[5], "Biseccion", str(response[2]))
+        report.crear_carpeta()
+        report.crear_pdf_biseccion()

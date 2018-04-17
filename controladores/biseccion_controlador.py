@@ -78,7 +78,7 @@ class Biseccion(QDialog, Acciones):
 
     def mostra_respuesta(self, response, ec):
         if response[0]:
-            resp = res.Resp(response, ec, res_bi.Ui_Dialog())
+            resp = res.Resp(response, ec, res_bi.Ui_Dialog(), self.interfaz.txtTolerancia.text())
             resp.exec_()
         else:
             self.mensaje("Infofrom matplotlib import pyplotrmación", "Informativo", "La ecuación f(x) = "+str(ec)+"\n\n"+

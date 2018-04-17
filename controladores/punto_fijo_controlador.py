@@ -75,7 +75,7 @@ class PuntoFijo(QDialog, Acciones):
 
     def mostra_respuesta(self, response, ec):
         if response[0]:
-            resp = res.Resp(response, ec, res_pf.Ui_Dialog())
+            resp = res.Resp(response, ec, res_pf.Ui_Dialog(), self.interfaz.txtTolerancia.text(), self.interfaz.txtVInicial.text())
             resp.exec_()
         else:
             self.mensaje("Infomación", "Informativo", "La ecuación g(x) = "+str(ec)+"\n\n"+
