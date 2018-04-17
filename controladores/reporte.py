@@ -116,16 +116,16 @@ class saveReport():
 
         header = None
 
-        titulo = "Ec_"+self.ecuacion+"_Int_"+str(self.intervalos)+"_Tol_"+self.tolerancia
+        titulo = "Int_"+str(self.intervalos)+"_Tol_"+self.tolerancia
 
         if self.metodo == "Biseccion":
             header = "f(x) = "+ self.ecuacion
-            titulo = "Soluciones/Biseccion/"+titulo
+            titulo = "/Soluciones/Biseccion/"+titulo
         else:
             header = "g(x) = "+ self.ecuacion
-            titulo = "Soluciones/Punto_Fijo/"+titulo
+            titulo = "/Soluciones/Punto_Fijo/"+titulo
 
-        doc = SimpleDocTemplate(titulo+".pdf", pagesize=landscape(letter))
+        doc = SimpleDocTemplate(os.getcwd()+titulo+".pdf", pagesize=landscape(letter))
         elements = []
 
         styleSheet = getSampleStyleSheet()
@@ -191,16 +191,16 @@ class saveReport():
     
         header = None
 
-        titulo = "Ec_"+self.ecuacion+"_Xi_"+str(self.intervalos)+"_Tol_"+self.tolerancia
+        titulo = "Xi_"+str(self.intervalos)+"_Tol_"+self.tolerancia
 
         if self.metodo == "Biseccion":
             header = "f(x) = "+ self.ecuacion
-            titulo = "Soluciones/Biseccion/"+titulo
+            titulo = "/Soluciones/Biseccion/"+titulo
         else:
             header = "g(x) = "+ self.ecuacion
-            titulo = "Soluciones/Punto_Fijo/"+titulo
+            titulo = "/Soluciones/Punto_Fijo/"+titulo
 
-        doc = SimpleDocTemplate(titulo+".pdf", pagesize=landscape(letter))
+        doc = SimpleDocTemplate(os.getcwd()+titulo+".pdf", pagesize=landscape(letter))
         elements = []
 
         styleSheet = getSampleStyleSheet()
